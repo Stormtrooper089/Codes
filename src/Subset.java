@@ -12,6 +12,9 @@ public class Subset {
         }
     }
 
+     //1 2 3 4
+
+
     private static List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> list =  new ArrayList<>();
         Arrays.sort(nums);

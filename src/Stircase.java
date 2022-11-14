@@ -1,3 +1,6 @@
+import java.util.concurrent.Future;
+import java.util.concurrent.ScheduledExecutorService;
+
 public class Stircase {
     public static void main(String[] args) {
         int n = 10;
@@ -13,5 +16,4 @@ public class Stircase {
         }
         return Math.max(1+findWays(n-1),1+findWays(n-2));
     }
-
 }
