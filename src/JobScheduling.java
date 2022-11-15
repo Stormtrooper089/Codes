@@ -48,9 +48,9 @@ public class JobScheduling {
         if (i == n)
             return 0;
 
-        // Re-use previously calculated max profit from this job onward
         if (max[i] != 0)
             return max[i];
+        // Re-use previously calculated max profit from this job onward
 
         int take = jobs.get(i).profit + takeJob(jobs, max, i+1, jobs.get(i).end, n);
         int skip = takeJob(jobs, max, i+1, t, n);

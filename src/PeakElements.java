@@ -1,6 +1,12 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class PeakElements {
     public static void main(String[] args) {
         int [] nums = {1,2,1,3,5,6,4};
+
+        ArrayList<Integer> arrayList = new ArrayList();
+
         findPeakElement(nums);
 
     }
