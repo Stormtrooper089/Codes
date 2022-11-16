@@ -32,11 +32,8 @@ public class LongestSequenceWithoutRepeating {
                 }
             }
         }
-
         System.out.println("The maximum substring with unique length is  " + max);
-
     }
-
     private static boolean checkifEverythingUnique(HashMap<Character, Integer> hashMap) {
         for(Character c : hashMap.keySet()){
             if(hashMap.get(c)!= (Integer)1){
