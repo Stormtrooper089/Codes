@@ -1,5 +1,8 @@
 package interview;
 
+import java.util.*;
+import java.util.concurrent.PriorityBlockingQueue;
+
 public class Trees {
     public static void main(String[] args) {
         Node root;
@@ -11,23 +14,26 @@ public class Trees {
         root.right.left = new Node(6);
         root.right.right = new Node(7);
         root.right.right.right = new Node(9);
+
+        //HashMap<String,Integer> hashMap = new HashMap<>();
+        //hashMap.put("abc", hashMap.getOrDefault("abc",0)+1);
         /*
                      1
-                 2          3
-              4    5     6    7
-            11 12         9
+                 2        3
+              4    5    6    7
+                                 9
 
          */
 
-        printInorder(root);
+        //printInorder(root);
 
-        parseTree(root,0);
+        //parseTree(root,0);
         int height = calculateHeightOfTree(root);
-        System.out.println(" the height of the tree is " + height);
+        //System.out.println(" the height of the tree is " + height);
 
-        printNodesAtDistance(root,0,2);
-        printPositionOfNode(root,0);
-        printPositionOfNodeHorizontal(root,0,0);
+        printNodesAtDistance(root,2);
+        //printPositionOfNode(root,0);
+        //printPositionOfNodeHorizontal(root,0,0);
 
     }
 
@@ -55,15 +61,63 @@ public class Trees {
 
     }
 
-    private static void printNodesAtDistance(Node root, int current ,int desired) {
+    private static void printNodesAtDistance(Node root, int distance) {
+
+        HashMap<Node,Node> childToParentMap = new HashMap<>();
+        childToParentMap.put(root,null);
+        Queue<Node> pq= new ArrayDeque<>();
+        pq.add(root);
+
+        while(!pq.isEmpty()){
+            Node node = pq.poll();
+
+            if(node.left != null){
+                pq.add(node.left);
+                childToParentMap.put(node.left,node);
+            }
+            if(node.right != null){
+                pq.add(node.right);
+                childToParentMap.put(node.right,node);
+            }
+        }
+
+        iterateNodesBelow(root,3,3,childToParentMap, new ArrayList<Node>());
+
+    }
+
+    private static void iterateNodesBelow(Node root, int target, int distance, HashMap<Node, Node> childToParentMap, ArrayList<Node> visited) {
         if(root == null){
             return;
         }
-        if( current == desired){
-            System.out.println("The root at n levev from the top " + root.data);
+        if(root.data == target){
+            printDownFromThis(root,distance,null);
+            while(distance > 0 && !visited.contains(root)){
+                distance -= 1;
+                visited.add(root);
+                printDownFromThis(childToParentMap.get(root),distance,root);
+                root = childToParentMap.get(root);
+
+            }
+            return;
         }
-        printNodesAtDistance(root.left,current+1,desired);
-        printNodesAtDistance(root.right,current+1,desired);
+        iterateNodesBelow(root.left,target,distance,childToParentMap,visited);
+        iterateNodesBelow(root.right,target,distance,childToParentMap,visited);
+
+    }
+
+    private static void printDownFromThis(Node root, int distance,Node visited) {
+        if(root == visited){
+            return;
+        }
+        if(root == null){
+            return;
+        }
+        if(distance ==0){
+            System.out.println("the node with given distance is " + root.data);
+            return;
+        }
+        printDownFromThis(root.left,distance-1,visited);
+        printDownFromThis(root.right,distance-1,visited);
 
     }
 
