@@ -81,7 +81,7 @@ public class Trees {
             }
         }
 
-        iterateNodesBelow(root,3,3,childToParentMap, new ArrayList<Node>());
+        iterateNodesBelow(root,6,3,childToParentMap, new ArrayList<Node>());
 
     }
 
