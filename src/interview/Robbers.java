@@ -11,13 +11,13 @@ public class Robbers {
     }
 
     private static int findTheRobbersMax(int[] nums,int i,int n,int[] max,boolean isFirstIncluded) {
-        if(i==n-1 && isFirstIncluded){
+        if(i == n-1 && isFirstIncluded){
             return 0;
         }
         if(i >= n ){
             return 0;
         }
-        if(max[i]!=-1){
+        if(max[i] != -1){
             return max[i];
         }
         int include  = nums[i] + findTheRobbersMax(nums,i+2,n,max,true);

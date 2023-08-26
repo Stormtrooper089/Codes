@@ -25,7 +25,7 @@ public class permutations {
             stringSet.add(s);
             //System.out.println("The currsum is " +  s +  "  dsj  " +  currSum++ );
         }
-        for( int i = l ; i< r ;i++){
+        for( int i = l ; i < r ; i++){
             s =  swap(s,l,i);
             findPermutations(s,l+1 , r, stringSet);
             s = swap(s,l,i);

@@ -19,8 +19,6 @@ public class Palindrome {
                 System.out.println("the palindrome is of length "  + s);
             }
         }
-        PriorityQueue<Integer> pq = new PriorityQueue<>();
-        pq.remove(5);
         generateAllLengthString(s.substring(0,s.length()-1),length);
         generateAllLengthString(s.substring(1,s.length()),length);
 

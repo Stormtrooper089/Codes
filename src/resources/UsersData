@@ -1,0 +1,42 @@
+@JsonProperty("P_ERRORMESSAGE")
+private String P_ERRORMESSAGE;
+@JsonProperty("P_DATASTR")
+private String P_DATASTR;
+@JsonProperty("P_PARTYID")
+private String P_PARTYID;
+@JsonProperty("P_IDAMSTATUS")
+private String P_IDAMSTATUS;
+@JsonProperty("P_WORKITEMID")
+private String P_WORKITEMID;
+@JsonProperty("P_COMMENT")
+private String P_COMMENT;
+@JsonProperty("CREATEDTS")
+private Date CREATEDTS;
+@JsonProperty("MODIFIEDTS")
+private Date MODIFIEDTS;
+@JsonProperty("P_NAMEACCURACYPOIPOB")
+private Long P_NAMEACCURACYPOIPOB;
+@JsonProperty("HJMPTS")
+private Long HJMPTS;
+@JsonProperty("TYPEPKLong")
+private Long TYPEPKLong;
+@JsonProperty("OWNERPKLong")
+private Long OWNERPKLong;
+@JsonProperty("PK")
+private Long PK;
+@JsonProperty("P_IDENTITYDETAIL")
+private Long P_IDENTITYDETAIL;
+@JsonProperty("P_BUSINESSDETAIL")
+private Long P_BUSINESSDETAIL;
+@JsonProperty("P_ONBOARDINGSTATUS")
+private Long P_ONBOARDINGSTATUS;
+@JsonProperty("ACLTS")
+private Long ACLTS;
+@JsonProperty("PROPTS")
+private Long PROPTS;
+@JsonProperty("P_APPROVALCHANNEL")
+private Long P_APPROVALCHANNEL;
+@JsonProperty("SEALED")
+private Long SEALED;
+@JsonProperty("P_UPLOADVERIFIEDDOCUMENTS")
+private Long P_UPLOADVERIFIEDDOCUMENTS;
